@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "642347727507",
+    "firebase_url": "https://steamahead-1177b.firebaseio.com",
+    "project_id": "steamahead-1177b",
+    "storage_bucket": "steamahead-1177b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642347727507:android:1d46e740befcfd87",
+        "android_client_info": {
+          "package_name": "com.example.hp.steamahead"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642347727507-fivmgk76irtelqqa1fatom365p254a28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hp.steamahead",
+            "certificate_hash": "2fd6a212e5d64074bf295488b80ba1b817883008"
+          }
+        },
+        {
+          "client_id": "642347727507-6563v0aq4rs5p8utl06eepv5j7mbf490.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "642347727507-6563v0aq4rs5p8utl06eepv5j7mbf490.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXnBUg24tMYl7fDgUoa35qDi5P4CzS4Ms"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642347727507-6563v0aq4rs5p8utl06eepv5j7mbf490.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
