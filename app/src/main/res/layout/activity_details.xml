@@ -5,6 +5,7 @@
     android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
@@ -24,35 +25,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="6dp">
 
             <TextView
                 android:id="@+id/score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
                 android:fontFamily="sans-serif"
                 android:text="@string/m_s"
+                android:layout_marginRight="3dp"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
             <View
                 android:layout_width="3dp"
                 android:layout_height="15dp"
+                android:layout_marginRight="3dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="8dp"
                 android:background="#000000" />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
                 android:text="@string/r_s"
                 android:fontFamily="sans-serif"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -64,7 +65,27 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-condensed"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/screenshots_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#000000"
+            android:text="@string/title"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="4dp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/screenshots"
+            android:layout_margin="8dp"/>
 
 
     </LinearLayout>

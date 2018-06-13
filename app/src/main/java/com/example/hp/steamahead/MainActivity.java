@@ -28,11 +28,11 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final int RC_SIGN_IN = 1;
+    private static final String CANCELLED_TAG ="SIGN_IN_CANCELLED";
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private RecyclerView mRecyclerView;
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<TopGames> mTopGames = new ArrayList<>();
     ArrayList<GameData> mGames = new ArrayList<>();
     Call<Map<String, Game>> gamesCall;
+    private String SIGN_IN_TAG = "SIGN_IN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null) {
-                    Toast.makeText(MainActivity.this, "Welcome.You are signed in ", Toast.LENGTH_SHORT).show();
+                    Log.i(SIGN_IN_TAG,"Sign-In Successful");
                 } else {
                     startActivityForResult(
                             AuthUI.getInstance()
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Map<String, Game>> call, Throwable t) {
-                Toast.makeText(MainActivity.this,"Couldn't load images for these games, bro!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"Couldn't load images!!",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -137,9 +138,9 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == RESULT_OK)
-                Toast.makeText(this, "Signed in!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Welcome.You are signed in ", Toast.LENGTH_SHORT).show();
             else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Sign in cancelled", Toast.LENGTH_SHORT).show();
+                Log.i(CANCELLED_TAG,"Sign-In successful");
                 finish();
             }
 

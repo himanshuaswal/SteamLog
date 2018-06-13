@@ -3,6 +3,8 @@ package com.example.hp.steamahead;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +21,8 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView mScoreTextView;
     private TextView mDateTextView;
     private TextView mDescriptionTextView;
+    private RecyclerView mScreenshotsRecyclerView;
+    private ScreenshotsAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,11 @@ public class DetailsActivity extends AppCompatActivity {
         mDescriptionTextView = findViewById(R.id.description);
         Intent intent = getIntent();
         GameData gameData = intent.getParcelableExtra("Game_Detail");
+        mScreenshotsRecyclerView = findViewById(R.id.screenshots);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        mScreenshotsRecyclerView.setLayoutManager(linearLayoutManager);
+        mAdapter = new ScreenshotsAdapter(this,gameData.getScreenshots());
+        mScreenshotsRecyclerView.setAdapter(mAdapter);
         Glide.with(this)
                 .load(gameData.getHeader_image())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -43,7 +52,7 @@ public class DetailsActivity extends AppCompatActivity {
         if (gameData.getMetacritic() != null)
             mScoreTextView.append(String.valueOf(gameData.getMetacritic().getScore()));
         else
-            mScoreTextView.setText("75");
+            mScoreTextView.append("75");
         if (gameData.getRelease_date() != null)
             mDateTextView.append(gameData.getRelease_date().getDate());
 
