@@ -15,7 +15,7 @@ import retrofit2.http.Query;
  ** Created by Gautam Krishnan {@link https://github.com/GautiKrish}
  */public interface SteamRetrofit {
      String STEAM_SPY_URL = "https://steamspy.com/";
-     String GAME_DETAILS_URL = "http://store.steampowered.com/api/";
+        String GAME_DETAILS_URL = "http://store.steampowered.com/api/";
 
 
     @GET("appdetails/")
